@@ -31,6 +31,9 @@ public class Interpreter {
                 tmpSource = bufferedReader.readLine();
             } while (tmpSource != null);
         } catch (IOException e){
+            e.printStackTree();
+            System.out.println("Error: exit this program");
+            System.exit(-1);
         }
     }
 
