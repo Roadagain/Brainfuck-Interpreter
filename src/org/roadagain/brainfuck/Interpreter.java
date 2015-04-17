@@ -3,6 +3,8 @@ package org.roadagain.brainfuck;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -55,6 +57,7 @@ public class Interpreter {
     public void run() {
         int current = 0;
         int loop = 0;
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         for (int i = 0; i < source.length(); i++){
             char c = source.charAt(i);
@@ -73,7 +76,11 @@ public class Interpreter {
                     buffer[current]--;
                     break;
                 case ',':
-                    //add somday
+                    try {
+                        buffer[current] = (byte)bufferedReader.read();
+                    } catch (IOException e){
+                        ;//do nothing
+                    }
                     break;
                 case '.':
                     System.out.print((char)buffer[current]);
