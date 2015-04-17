@@ -81,29 +81,41 @@ public class Interpreter {
                 case '[':
                     if (buffer[current] == 0){
                         i++;
-                        while (loop > 0 || this.source.charAt(i) != ']'){
-                            char tmp = this.source.charAt(i);
+                        try {
+                            while (loop > 0 || this.source.charAt(i) != ']'){
+                                char tmp = this.source.charAt(i);
 
-                            if (tmp == '['){
-                                loop++;
+                                if (tmp == '['){
+                                    loop++;
+                                }
+                                else if (tmp == ']'){
+                                    loop--;
+                                }
                             }
-                            else if (tmp == ']'){
-                                loop--;
-                            }
+                        } catch (IndexOutOfBoundsException e){
+                            e.printStackTrace();
+                            System.out.println("Error: not closed loop");
+                            System.exit(-1);
                         }
                     }
                     break;
                 case ']':
                     i--;
-                    while (loop > 0 || this.source.charAt(i) == '['){
-                        char tmp = this.source.charAt(i);
+                    try {
+                        while (loop > 0 || this.source.charAt(i) == '['){
+                            char tmp = this.source.charAt(i);
 
-                        if (tmp == ']'){
-                            loop++;
+                            if (tmp == ']'){
+                                loop++;
+                            }
+                            else if (tmp == '['){
+                                loop--;
+                            }
                         }
-                        else if (tmp == '['){
-                            loop--;
-                        }
+                    } catch (IndexOutOfBoundsException e){
+                        e.printStackTrace();
+                        System.out.println("Error: not opened loop");
+                        System.exit(-1);
                     }
                     i--;
                     break;
