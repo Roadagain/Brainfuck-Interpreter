@@ -78,6 +78,35 @@ public class Interpreter {
                 case '.':
                     System.out.print((char)buffer[current]);
                     break;
+                case '[':
+                    if (buffer[current] == 0){
+                        i++;
+                        while (loop > 0 || this.source.charAt(i) != ']'){
+                            char tmp = this.source.charAt(i);
+
+                            if (tmp == '['){
+                                loop++;
+                            }
+                            else if (tmp == ']'){
+                                loop--;
+                            }
+                        }
+                    }
+                    break;
+                case ']':
+                    i--;
+                    while (loop > 0 || this.source.charAt(i) == '['){
+                        char tmp = this.source.charAt(i);
+
+                        if (tmp == ']'){
+                            loop++;
+                        }
+                        else if (tmp == '['){
+                            loop--;
+                        }
+                    }
+                    i--;
+                    break;
             }
         }
     }
