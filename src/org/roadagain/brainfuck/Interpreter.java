@@ -27,7 +27,7 @@ public class Interpreter {
         try {
             String tmpSource = "";
             do {
-                source += tmpSource;
+                this.source += tmpSource;
                 tmpSource = bufferedReader.readLine();
             } while (tmpSource != null);
         } catch (IOException e){
@@ -36,7 +36,7 @@ public class Interpreter {
             System.exit(-1);
         }
 
-        buffer = new byte[bufSize];
+        this.buffer = new byte[bufSize];
     }
 
     /**
