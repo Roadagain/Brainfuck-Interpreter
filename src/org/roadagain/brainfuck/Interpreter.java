@@ -17,7 +17,7 @@ public class Interpreter {
      * @param fileName source file name
      * @throws FileNotFoundException if Interpreter failed to open the source file
      */
-    public Interpreter(String fileName, int bufSize) throws FileNotFoundException {
+    public Interpreter(String fileName, int bufSize = 1024) throws FileNotFoundException {
         File file = new File(fileName);
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
