@@ -45,7 +45,7 @@ public class Interpreter {
      * @throws FileNotFoundException if Interpreter failed to open the source file
      * @see #Interpreter(String, int)
      */
-    public Interpreter(String fileName) throws FileNotFoundEception {
+    public Interpreter(String fileName) throws FileNotFoundException {
         this(fileName, 1024);
     }
 
