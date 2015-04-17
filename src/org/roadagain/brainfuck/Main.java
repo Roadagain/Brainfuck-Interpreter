@@ -13,7 +13,7 @@ public class Main {
      * @param args source file's name (although call with more than one argument,
      *          this program interprets only the first source file)
      */
-    public static void main(String[] args){
+    public static void main(String[] args) {
         if (args.length == 0){
             System.out.println("Error: no input files");
             System.exit(-1);
@@ -21,6 +21,7 @@ public class Main {
 
         try {
             Interpreter interpreter = new Interpreter(args[0]);
+            interpreter.run();
         } catch (FileNotFoundException e){
             System.out.println("Error: " + args[0] + " was not available");
         }
