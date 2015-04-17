@@ -45,10 +45,10 @@ public class Interpreter {
     /**
      * The String value that is holding source file
      */
-    String source;
+    private String source;
 
     /**
      * The byte array value that gets memory area
      */
-    byte[] buffer;
+    private byte[] buffer;
 }
