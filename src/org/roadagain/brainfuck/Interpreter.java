@@ -51,9 +51,22 @@ public class Interpreter {
         this(fileName, 1024);
     }
 
+    /**
+     * Get source code
+     * @return source code
+     * @see #source
+     */
     public String getSource() { return new String(this.source); }
+    /**
+     * Get buffer
+     * @return buffer
+     * @see #buffer
+     */
     public byte[] getBuffer() { return buffer.clone(); }
 
+    /**
+     * Run brainfuck interpreter
+     */
     public void run() {
         int current = 0;
         int loop = 0;
