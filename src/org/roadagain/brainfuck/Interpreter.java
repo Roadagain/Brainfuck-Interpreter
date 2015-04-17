@@ -15,9 +15,9 @@ public class Interpreter {
     /**
      * Constructor
      * @param fileName source file name
-     * @throws FileNotFoundException if {@code file} failed to open the source file
+     * @throws FileNotFoundException if Interpreter failed to open the source file
      */
-    public Interpreter(String fileName) throws FileNotFoundException {
+    public Interpreter(String fileName, int bufSize) throws FileNotFoundException {
         File file = new File(fileName);
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -35,10 +35,17 @@ public class Interpreter {
             System.out.println("Error: exit this program");
             System.exit(-1);
         }
+
+        buffer = new byte[bufSize];
     }
 
     /**
      * The String value that is holding source file
      */
     String source;
+
+    /**
+     * The byte array value that gets memory area
+     */
+    byte[] buffer;
 }
