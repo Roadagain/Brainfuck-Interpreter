@@ -49,10 +49,10 @@ public class Interpreter {
         this(fileName, 1024);
     }
 
-    public String getSource(){ return new String(this.source); }
-    public byte[] getBuffer(){ return buffer.clone(); }
+    public String getSource() { return new String(this.source); }
+    public byte[] getBuffer() { return buffer.clone(); }
 
-    public void run(){
+    public void run() {
         int current = 0;
         int loop = 0;
 
