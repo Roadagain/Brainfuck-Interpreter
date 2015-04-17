@@ -21,6 +21,7 @@ public class Main {
 
         try {
             Interpreter interpreter = new Interpreter(args[0]);
+            interpreter.run();
         } catch (FileNotFoundException e){
             System.out.println("Error: " + args[0] + " was not available");
         }
