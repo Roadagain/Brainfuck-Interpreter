@@ -39,6 +39,9 @@ public class Interpreter {
         this.buffer = new byte[bufSize];
     }
 
+    public String getSource(){ return new String(this.source); }
+    public byte[] getBuffer(){ return buffer.clone(); }
+
     /**
      * The String value that is holding source file
      */
