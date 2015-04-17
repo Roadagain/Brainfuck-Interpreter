@@ -37,7 +37,6 @@ public class Interpreter {
         }
 
         this.buffer = new byte[bufSize];
-        this.loop = 0;
     }
 
     /**
@@ -49,9 +48,4 @@ public class Interpreter {
      * The byte array value that gets memory area
      */
     byte[] buffer;
-
-    /**
-     * The int vlaue that counts loop
-     */
-    int loop;
 }
