@@ -15,6 +15,7 @@ public class Interpreter {
     /**
      * Constructor
      * @param fileName source file name
+     * @param bufSize size of buffer
      * @throws FileNotFoundException if Interpreter failed to open the source file
      */
     public Interpreter(String fileName, int bufSize) throws FileNotFoundException {
@@ -37,6 +38,15 @@ public class Interpreter {
         }
 
         this.buffer = new byte[bufSize];
+    }
+    /**
+     * Second constructor
+     * @param fileName source file name
+     * @throws FileNotFoundException if Interpreter failed to open the source file
+     * @see #Interpreter(String, int)
+     */
+    public Interpreter(String fileName) throws FileNotFoundEception {
+        this(fileName, 1024);
     }
 
     public String getSource(){ return new String(this.source); }
