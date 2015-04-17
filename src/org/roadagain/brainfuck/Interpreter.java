@@ -52,6 +52,15 @@ public class Interpreter {
     public String getSource(){ return new String(this.source); }
     public byte[] getBuffer(){ return buffer.clone(); }
 
+    public void run(){
+        int current = 0;
+        int loop = 0;
+
+        for (int i = 0; i < source.length(); i++){
+            char c = source.charAt(i);
+        }
+    }
+
     /**
      * The String value that is holding source file
      */
