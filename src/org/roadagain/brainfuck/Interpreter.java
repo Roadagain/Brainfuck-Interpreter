@@ -91,7 +91,6 @@ public class Interpreter {
                                 else if (tmp == ']'){
                                     loop--;
                                 }
-                                i++;
                             }
                         } catch (IndexOutOfBoundsException e){
                             e.printStackTrace();
@@ -103,7 +102,7 @@ public class Interpreter {
                 case ']':
                     i--;
                     try {
-                        while (loop > 0 || this.source.charAt(i) != '['){
+                        while (loop > 0 || this.source.charAt(i) == '['){
                             char tmp = this.source.charAt(i);
 
                             if (tmp == ']'){
@@ -112,7 +111,6 @@ public class Interpreter {
                             else if (tmp == '['){
                                 loop--;
                             }
-                            i--;
                         }
                     } catch (IndexOutOfBoundsException e){
                         e.printStackTrace();
