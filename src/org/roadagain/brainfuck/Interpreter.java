@@ -58,6 +58,27 @@ public class Interpreter {
 
         for (int i = 0; i < source.length(); i++){
             char c = source.charAt(i);
+
+            switch (c){
+                case '>':
+                    current++;
+                    break;
+                case '<':
+                    current--;
+                    break;
+                case '+':
+                    buffer[current]++;
+                    break;
+                case '-':
+                    buffer[current]--;
+                    break;
+                case ',':
+                    //add somday
+                    break;
+                case '.':
+                    System.out.print((char)buffer[current]);
+                    break;
+            }
         }
     }
 
