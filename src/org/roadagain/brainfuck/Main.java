@@ -1,5 +1,8 @@
 package org.roadagain.brainfuck;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 
 /**
@@ -20,7 +23,7 @@ public class Main {
         }
 
         try {
-            Interpreter interpreter = new Interpreter(args[0]);
+            Interpreter interpreter = new Interpreter(new BufferedReader(new FileReader(new File(args[0]))));
             interpreter.run();
         } catch (FileNotFoundException e){
             System.out.println("Error: " + args[0] + " was not available");
