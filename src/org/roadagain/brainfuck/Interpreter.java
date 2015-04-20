@@ -39,12 +39,9 @@ public class Interpreter {
     }
     /**
      * The constructor which is called with a String argument
-     * @param fileName source file name
-     * @throws FileNotFoundException if Interpreter failed to open the source file
-     * @see Interpreter#Interpreter(BufferedReader)
      */
-    public Interpreter(String fileName) throws FileNotFoundException {
-        this(new BufferedReader(new FileReader(new File(fileName))));
+        this.source = source;
+        this.buffer = new byte[BUF_SIZE];
     }
 
     /**
