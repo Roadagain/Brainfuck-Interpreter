@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class Interpreter {
     /**
-     * Constructor
+     * The constructor which is called with a String argument and an int argument
      * @param fileName source file name
      * @param bufSize size of buffer
      * @throws FileNotFoundException if Interpreter failed to open the source file
@@ -42,7 +42,7 @@ public class Interpreter {
         this.buffer = new byte[bufSize];
     }
     /**
-     * Second constructor
+     * The constructor which is called with a String argument
      * @param fileName source file name
      * @throws FileNotFoundException if Interpreter failed to open the source file
      * @see #Interpreter(String, int)
@@ -146,7 +146,7 @@ public class Interpreter {
     }
 
     /**
-     * The String value that is holding source file
+     * The String value that holds source file
      */
     private String source;
 
