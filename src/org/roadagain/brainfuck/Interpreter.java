@@ -15,15 +15,10 @@ import java.io.IOException;
  */
 public class Interpreter {
     /**
-     * The constructor which is called with a String argument
-     * @param fileName source file name
-     * @throws FileNotFoundException if Interpreter failed to open the source file
+     * The constructor which is called with a BufferedReader argument
+     * @param bufferedReader buffered reader of source program
      */
-    public Interpreter(String fileName) throws FileNotFoundException {
-        File file = new File(fileName);
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-
+    public Interpreter(BufferedReader bufferedReader) {
         //Loading source file to #source
         this.source = new String();
         try {
@@ -39,6 +34,15 @@ public class Interpreter {
         }
 
         this.buffer = new byte[BUF_SIZE];
+    }
+    /**
+     * The constructor which is called with a String argument
+     * @param fileName source file name
+     * @throws FileNotFoundException if Interpreter failed to open the source file
+     * @see Interpreter#Interpreter(BufferedReader)
+     */
+    public Interpreter(String fileName) throws FileNotFoundException {
+        this(new BufferedReader(new FileReader(new File(fileName))));
     }
 
     /**
