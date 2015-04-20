@@ -22,7 +22,7 @@ public class Interpreter {
         //Loading source file to #source
         try {
             StringBuffer stringBuffer = new StringBuffer("");
-            Strint tmpSource = "";
+            String tmpSource = "";
 
             do {
                 stringBuffer.append(tmpSource);
