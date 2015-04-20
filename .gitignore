@@ -13,3 +13,6 @@ hs_err_pid*
 
 #test brainfuck source file
 *.bf
+
+#javadoc html
+docs/

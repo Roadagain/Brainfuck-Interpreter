@@ -11,61 +11,62 @@ import java.io.IOException;
 /**
  * brainfuck interpreter
  * @author Roadagain
- * @version 1.0
+ * @version 1.1
+ * @since 1.0
  */
 public class Interpreter {
     /**
-     * Constructor
-     * @param fileName source file name
-     * @param bufSize size of buffer
-     * @throws FileNotFoundException if Interpreter failed to open the source file
+     * The constructor which is called with a BufferedReader argument
+     * @param bufferedReader The BufferedReader of the source program
+     * @since 1.1
      */
-    public Interpreter(String fileName, int bufSize) throws FileNotFoundException {
-        File file = new File(fileName);
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-
+    public Interpreter(BufferedReader bufferedReader) {
         //Loading source file to #source
-        this.source = new String();
         try {
+            StringBuffer stringBuffer = new StringBuffer("");
             String tmpSource = "";
+
             do {
-                this.source += tmpSource;
+                stringBuffer.append(tmpSource);
                 tmpSource = bufferedReader.readLine();
             } while (tmpSource != null);
+            this.source = stringBuffer.toString();
         } catch (IOException e){
             e.printStackTrace();
             System.out.println("Error: exit this program");
             System.exit(-1);
         }
 
-        this.buffer = new byte[bufSize];
+        this.buffer = new byte[BUF_SIZE];
     }
     /**
-     * Second constructor
-     * @param fileName source file name
-     * @throws FileNotFoundException if Interpreter failed to open the source file
-     * @see #Interpreter(String, int)
+     * The constructor which is called with a String argument
+     * @param source The String value which holds the source program
+     * @since 1.1
      */
-    public Interpreter(String fileName) throws FileNotFoundException {
-        this(fileName, 1024);
+    public Interpreter(String source) {
+        this.source = source;
+        this.buffer = new byte[BUF_SIZE];
     }
 
     /**
      * Get source code
      * @return source code
+     * @since 1.0
      * @see #source
      */
     public String getSource() { return new String(this.source); }
     /**
      * Get buffer
      * @return buffer
+     * @since 1.0
      * @see #buffer
      */
     public byte[] getBuffer() { return buffer.clone(); }
 
     /**
      * Run brainfuck interpreter
+     * @since 1.0
      */
     public void run() {
         int current = 0;
@@ -146,12 +147,20 @@ public class Interpreter {
     }
 
     /**
-     * The String value that is holding source file
+     * The constant int value that has the size of the buffer
+     * @since 1.1
+     */
+    public static final int BUF_SIZE = 1024;
+
+    /**
+     * The String value that holds source file
+     * @since 1.0
      */
     private String source;
 
     /**
      * The byte array value that gets memory area
+     * @since 1.0
      */
     private byte[] buffer;
 }
