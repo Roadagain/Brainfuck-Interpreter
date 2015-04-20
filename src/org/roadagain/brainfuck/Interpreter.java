@@ -11,12 +11,14 @@ import java.io.IOException;
 /**
  * brainfuck interpreter
  * @author Roadagain
- * @version 1.0
+ * @version 1.1
+ * @since 1.0
  */
 public class Interpreter {
     /**
      * The constructor which is called with a BufferedReader argument
      * @param bufferedReader The BufferedReader of the source program
+     * @since 1.1
      */
     public Interpreter(BufferedReader bufferedReader) {
         //Loading source file to #source
@@ -40,6 +42,7 @@ public class Interpreter {
     /**
      * The constructor which is called with a String argument
      * @param source The String value which holds the source program
+     * @since 1.1
      */
     public Interpreter(String source) {
         this.source = source;
@@ -49,18 +52,21 @@ public class Interpreter {
     /**
      * Get source code
      * @return source code
+     * @since 1.0
      * @see #source
      */
     public String getSource() { return new String(this.source); }
     /**
      * Get buffer
      * @return buffer
+     * @since 1.0
      * @see #buffer
      */
     public byte[] getBuffer() { return buffer.clone(); }
 
     /**
      * Run brainfuck interpreter
+     * @since 1.0
      */
     public void run() {
         int current = 0;
@@ -142,16 +148,19 @@ public class Interpreter {
 
     /**
      * The constant int value that has the size of the buffer
+     * @since 1.1
      */
     public static final int BUF_SIZE = 1024;
 
     /**
      * The String value that holds source file
+     * @since 1.0
      */
     private String source;
 
     /**
      * The byte array value that gets memory area
+     * @since 1.0
      */
     private byte[] buffer;
 }
