@@ -16,7 +16,7 @@ import java.io.IOException;
 public class Interpreter {
     /**
      * The constructor which is called with a BufferedReader argument
-     * @param bufferedReader buffered reader of source program
+     * @param bufferedReader The BufferedReader of the source program
      */
     public Interpreter(BufferedReader bufferedReader) {
         //Loading source file to #source
@@ -39,7 +39,9 @@ public class Interpreter {
     }
     /**
      * The constructor which is called with a String argument
+     * @param source The String value which holds the source program
      */
+    public Interpreter(String source) {
         this.source = source;
         this.buffer = new byte[BUF_SIZE];
     }
