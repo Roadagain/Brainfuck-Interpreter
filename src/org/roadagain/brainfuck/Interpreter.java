@@ -20,13 +20,15 @@ public class Interpreter {
      */
     public Interpreter(BufferedReader bufferedReader) {
         //Loading source file to #source
-        this.source = new String();
         try {
-            String tmpSource = "";
+            StringBuffer stringBuffer = new StringBuffer("");
+            Strint tmpSource = "";
+
             do {
-                this.source += tmpSource;
+                stringBuffer.append(tmpSource);
                 tmpSource = bufferedReader.readLine();
             } while (tmpSource != null);
+            this.source = stringBuffer.toString();
         } catch (IOException e){
             e.printStackTrace();
             System.out.println("Error: exit this program");
