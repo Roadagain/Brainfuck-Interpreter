@@ -17,7 +17,7 @@ DOCPATH = -d $(DOC_DIR)
 all: class docs
 
 .PHONY: rebuild
-rebuild: all clean
+rebuild: clean all
 
 .PHONY: class
 class: $(CLASS)
@@ -34,4 +34,5 @@ docs: $(SRC)
 
 .PHONY: clean
 clean:
-	rm -f $(BUILD_DIR)/$(PACKAGE)/*.class
+	rm -rf $(BUILD_DIR)/*
+	rm -rf $(DOC_DIR)/*
