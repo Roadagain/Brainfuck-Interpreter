@@ -15,12 +15,11 @@ import java.io.IOException;
  */
 public class Interpreter {
     /**
-     * The constructor which is called with a String argument and an int argument
+     * The constructor which is called with a String argument
      * @param fileName source file name
-     * @param bufSize size of buffer
      * @throws FileNotFoundException if Interpreter failed to open the source file
      */
-    public Interpreter(String fileName, int bufSize) throws FileNotFoundException {
+    public Interpreter(String fileName) throws FileNotFoundException {
         File file = new File(fileName);
         FileReader fileReader = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -39,16 +38,7 @@ public class Interpreter {
             System.exit(-1);
         }
 
-        this.buffer = new byte[bufSize];
-    }
-    /**
-     * The constructor which is called with a String argument
-     * @param fileName source file name
-     * @throws FileNotFoundException if Interpreter failed to open the source file
-     * @see #Interpreter(String, int)
-     */
-    public Interpreter(String fileName) throws FileNotFoundException {
-        this(fileName, 1024);
+        this.buffer = new byte[BUF_SIZE];
     }
 
     /**
@@ -144,6 +134,11 @@ public class Interpreter {
             }
         }
     }
+
+    /**
+     * The constant int value that has the size of the buffer
+     */
+    public static final int BUF_SIZE = 1024;
 
     /**
      * The String value that holds source file
