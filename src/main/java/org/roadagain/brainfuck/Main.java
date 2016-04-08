@@ -4,11 +4,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  * Main class of Brainfuck-interpreter
  * @author Roadagain
- * @version 1.1
+ * @version 2.0
  * @since 1.0
  */
 public class Main {
@@ -20,15 +21,22 @@ public class Main {
      */
     public static void main(String[] args) {
         if (args.length == 0){
-            System.out.println("Error: no input files");
-            System.exit(-1);
+            Scanner input = new Scanner(System.in);
+            Interpreter interpreter = new Interpreter();
+            System.out.print("> ");
+            while (input.hasNext()){
+                interpreter.setSource(input.nextLine());
+                interpreter.run();
+                System.out.print("> ");
+            }
         }
-
-        try {
-            Interpreter interpreter = new Interpreter(new BufferedReader(new FileReader(new File(args[0]))));
-            interpreter.run();
-        } catch (FileNotFoundException e){
-            System.out.println("Error: " + args[0] + " was not available");
+        else {
+            try {
+                Interpreter interpreter = new Interpreter(new BufferedReader(new FileReader(new File(args[0]))));
+                interpreter.run();
+            } catch (FileNotFoundException e){
+                System.out.println("Error: " + args[0] + " was not available");
+            }
         }
     }
 }
