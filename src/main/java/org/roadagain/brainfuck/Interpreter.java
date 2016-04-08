@@ -65,6 +65,13 @@ public class Interpreter {
     public byte[] getBuffer() { return buffer.clone(); }
 
     /**
+     * Set source code
+     * @since 1.2
+     * @see #source
+     */
+    public void setSource(String source) { this.source = source; }
+
+    /**
      * Run brainfuck interpreter
      * @since 1.0
      */
