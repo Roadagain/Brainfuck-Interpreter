@@ -48,6 +48,13 @@ public class Interpreter {
         this.source = source;
         this.buffer = new byte[BUF_SIZE];
     }
+    /**
+     * The constructor which is called with no arguments
+     * @since 1.2
+     */
+    public Interpreter() {
+        this("");
+    }
 
     /**
      * Get source code
