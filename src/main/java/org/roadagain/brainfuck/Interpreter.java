@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * brainfuck interpreter
  * @author Roadagain
- * @version 1.1
+ * @version 2.0
  * @since 1.0
  */
 public class Interpreter {
@@ -50,7 +50,7 @@ public class Interpreter {
     }
     /**
      * The constructor which is called with no arguments
-     * @since 1.2
+     * @since 2.0
      */
     public Interpreter() {
         this("");
@@ -73,7 +73,7 @@ public class Interpreter {
 
     /**
      * Set source code
-     * @since 1.2
+     * @since 2.0
      * @see #source
      */
     public void setSource(String source) { this.source = source; }

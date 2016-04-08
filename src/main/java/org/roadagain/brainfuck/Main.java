@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * Main class of Brainfuck-interpreter
  * @author Roadagain
- * @version 1.1
+ * @version 2.0
  * @since 1.0
  */
 public class Main {
